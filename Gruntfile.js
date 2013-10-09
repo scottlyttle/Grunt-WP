@@ -59,13 +59,14 @@ module.exports = function(grunt) {
 		},
 		watch: {
 			files: [
+				'*.php',
 				'sass/*.scss', 
 				'js/functions.js',
 				'js/setup/*.js',
 				'js/plugins/*.js',
 				'!js/build/*.js',  // ignore build files
 			],
-			tasks: ['jshint', 'concat', 'uglify', 'compass'],
+			tasks: ['jshint', 'concat', 'compass'],
 			options: {
 				livereload: true,
 			}
@@ -82,6 +83,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-livereload');
 
 	// Tasks
-	grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'compass']);
-	grunt.registerTask('dev', ['default', 'watch']);
+	grunt.registerTask('default', ['jshint', 'concat', 'compass', 'watch']);
+	grunt.registerTask('build', ['jshint', 'concat', 'uglify', 'compass']);
 };
